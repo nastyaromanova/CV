@@ -1,0 +1,12 @@
+FROM fedora:31
+
+RUN yum-get update && yum-get install --yes --no-install-recommends \
+    texlive-collection-latexrecommended \
+    texlive-collection-fontsrecommended \
+    texlive-collection-pictures \
+    texlive-collection-science \
+    texlive-collection-langcyrillic 
+
+COPY ./newcv.tex .
+
+CMD ["pdflatex", "-interaction=nonstopmode", "newcv.tex"]
