@@ -1,20 +1,24 @@
 name: github-pages
 
-on: [push]
+on: 
+  push:
+    branches:
+      - master
 
 jobs:
   build-my-resume-and-deploy-it:
     runs-on: ubuntu-latest
     steps:
       - name: check-out-a-copy
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v2
 
       - name: Install and Build 
       - run: docker build -t resume .
       - run: docker run resume
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.1.7
+        uses: JamesIves/github-pages-deploy-action@v3
         with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           branch: resume
           folder: CV
