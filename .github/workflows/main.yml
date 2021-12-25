@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: check-out-a-copy
         uses: actions/checkout@v2
-      - run: docker build --tag resume -f Dockerfile .
+      - run: docker build --tag resume -f DockerFile .
       - run: docker run -it resume
