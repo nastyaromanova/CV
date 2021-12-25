@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check-out-a-copy
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - run: docker build -t resume .
       - run: docker run resume
