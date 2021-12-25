@@ -6,19 +6,23 @@ on:
       - master
 
 jobs:
-  build-my-resume-and-deploy-it:
+  build:
+    name: deploy-resume-to-github-pages
     runs-on: ubuntu-latest
+    
     steps:
-      - name: check-out-a-copy
-        uses: actions/checkout@v2
-
-      - name: Install and Build 
-      - run: docker build -t resume .
-      - run: docker run resume
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v3
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          branch: resume
-          folder: CV
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Build docker
+      run: docker build -t resume .
+    
+    - name: Build resume
+      run: docker run resume
+    
+    - name: Deploy Github Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: resume
+        FOLDER: CV
