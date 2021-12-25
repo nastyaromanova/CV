@@ -1,7 +1,5 @@
 FROM fedora:31
 
-RUN yum clean dbcache
-
 RUN yum update -y
 
 RUN yum install -y  \
