@@ -32,6 +32,6 @@ RUN yum install -y  \
 	texlive-collection-publishers \
 	texlive-collection-science 
 
-COPY ./CV/newcv.tex .
+COPY ./CV/main.tex .
 
-CMD ["pdflatex", "-interaction=nonstopmode", "newcv.tex"]
+CMD ["pdflatex", "-interaction=nonstopmode", "main.tex"]
