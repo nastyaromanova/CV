@@ -6,8 +6,7 @@ on:
       - master
 
 jobs:
-  build:
-    name: build-my-resume-and-deploy-it
+  build-my-resume-and-deploy-it:
     runs-on: ubuntu-latest
     steps:
       - name: check-out-a-copy
