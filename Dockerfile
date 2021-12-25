@@ -34,4 +34,4 @@ RUN yum install -y  \
 
 COPY ./CV/newcv.tex .
 
-CMD ["xelatex", "-interaction=nonstopmode", "newcv.tex"]
+CMD ["pdflatex", "-interaction=nonstopmode", "newcv.tex"]
