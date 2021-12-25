@@ -9,4 +9,4 @@ jobs:
       - name: check-out-a-copy
         uses: actions/checkout@v2
       - run: docker build --tag resume -f DockerFile .
-      - run: docker run -it resume
+      - run: docker run resume
